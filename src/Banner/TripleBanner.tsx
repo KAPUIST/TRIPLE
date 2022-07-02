@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Styled from 'styled-components'
+import Styled, { keyframes } from 'styled-components'
 
+interface Title {
+  image: string
+  text: string
+}
 interface Info {
   count: number
   unit: string
@@ -10,6 +14,16 @@ interface Award {
   image: string
   text: string
 }
+const fadeIn = keyframes`
+  from{
+    opacity:0 ;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1 ;
+    transform:translateY(0px);
+  }
+`
 const Container = Styled.div`
 position:relative;
 height: auto;
@@ -20,7 +34,8 @@ margin:0 auto;
 const LogoImageBox = Styled.div`
 position:absolute;
 top:150px;
-
+animation-duration:700ms;
+animation-name:${fadeIn};
 .contents-logo{
 background-image:url("./triple2x.png");
 width:400px;
@@ -30,8 +45,13 @@ padding-top:280px;
 text-align: center;
 color: rgba(58, 58, 58, 0.7);
 }
+
+
 `
 const BannerInformation = Styled.div`
+animation-delay:100ms;
+animation-duration:700ms;
+animation-name:${fadeIn};
     margin-left: 623px;
     padding-top: 150px;
     .information {
@@ -45,12 +65,13 @@ const BannerInformation = Styled.div`
 
 const AwardContainer = Styled.div`
 margin: 50px 0 140px 623px;
-
+animation-delay:200ms;
+animation-duration:700ms;
+animation-name:${fadeIn};
 .award-item{
   color: rgba(58, 58, 58, 0.8);
     font-weight: bold;
   background-size: 54px 54px;
-    height: 54px;
     padding: 5px 0 5px 62px;
     font-size: 14px;
     line-height: 22px;
@@ -61,10 +82,12 @@ margin: 50px 0 140px 623px;
 `
 
 const TripleBanner: React.FC = () => {
+  const [title, setTitle] = useState<Title>({ image: '', text: '' })
   const [infromation, setInformation] = useState<Info[]>([])
   const [awardItem, setAwardItem] = useState<Award[]>([])
 
   useEffect(() => {
+    setTitle({ image: './triple2x.png', text: '2019년2월기준' })
     setAwardItem([
       {
         image: './play-store2x.png',
@@ -85,7 +108,12 @@ const TripleBanner: React.FC = () => {
   return (
     <Container>
       <LogoImageBox>
-        <div className="contents-logo">2019년2월기준</div>
+        <div
+          className="contents-logo"
+          style={{ backgroundImage: `url(${title.image})` }}
+        >
+          {title.text}
+        </div>
       </LogoImageBox>
       <BannerInformation>
         {infromation.map((el, index) => {
