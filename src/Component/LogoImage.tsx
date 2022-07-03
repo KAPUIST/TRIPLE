@@ -1,10 +1,10 @@
 import Styled from 'styled-components'
 
-import { Title } from '../Section/TripleBanner'
+import { Logo } from '../Section/TripleBanner'
 import { fadeIn } from '../style/Animation'
 
-interface TitleProps {
-  title: Title
+interface LogoProps {
+  logo: Logo
 }
 const LogoImageBox = Styled.div`
 position:absolute;
@@ -22,14 +22,14 @@ text-align: center;
 color: rgba(58, 58, 58, 0.7);
 }
 `
-const LogoImage = ({ title }: TitleProps) => {
+const LogoImage = ({ logo }: LogoProps) => {
   return (
     <LogoImageBox>
       <div
         className="contents-logo"
-        style={{ backgroundImage: `url(${title.image})` }}
+        style={{ backgroundImage: `url(${logo.image})` }}
       >
-        {title.text}
+        {logo.text}
       </div>
     </LogoImageBox>
   )

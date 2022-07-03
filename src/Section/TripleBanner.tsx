@@ -5,7 +5,7 @@ import LogoImage from '../Component/LogoImage'
 import SectionInformation from '../Component/SectionInformation'
 import AwardBox from '../Component/AwardContainer'
 
-export interface Title {
+export interface Logo {
   image: string
   text: string
 }
@@ -27,12 +27,12 @@ margin:0 auto;
 `
 
 const TripleBanner: React.FC = () => {
-  const [title, setTitle] = useState<Title>({ image: '', text: '' })
+  const [logo, setLogo] = useState<Logo>({ image: '', text: '' })
   const [information, setInformation] = useState<Info[]>([])
   const [awardItem, setAwardItem] = useState<Award[]>([])
 
   useEffect(() => {
-    setTitle({ image: './triple2x.png', text: '2019년2월기준' })
+    setLogo({ image: './triple2x.png', text: '2019년2월기준' })
 
     setAwardItem([
       {
@@ -53,7 +53,7 @@ const TripleBanner: React.FC = () => {
 
   return (
     <Container>
-      <LogoImage title={title} />
+      <LogoImage logo={logo} />
       <SectionInformation information={information} />
       <AwardBox awardItem={awardItem} />
     </Container>
