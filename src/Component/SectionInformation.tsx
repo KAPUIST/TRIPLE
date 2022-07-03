@@ -2,6 +2,7 @@ import Styled from 'styled-components'
 
 import { Info } from '../Section/TripleBanner'
 import { fadeIn } from '../style/Animation'
+import CountAnimation from '../Services/useCountAnimation'
 
 interface InfoProps {
   information: Info[]
@@ -12,7 +13,7 @@ animation-duration:700ms;
 animation-name:${fadeIn};
     margin-left: 623px;
     padding-top: 150px;
-
+    animation-timing-function :ease-in-out;
     .information {
     text-align: start;
     color: rgb(58, 58, 58);
@@ -28,7 +29,7 @@ const SectionInformation = ({ information }: InfoProps) => {
         return (
           <div className="information" key={index}>
             <strong>
-              <span>{123}</span>
+              <span>{CountAnimation(el.count, 0, 2000)}</span>
               {el.unit}
             </strong>
             {el.text}

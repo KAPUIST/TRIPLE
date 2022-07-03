@@ -11,7 +11,7 @@ margin: 50px 0 140px 623px;
 animation-delay:200ms;
 animation-duration:700ms;
 animation-name:${fadeIn};
-
+animation-timing-function :ease-in-out;
 .award-item{
   color: rgba(58, 58, 58, 0.8);
     font-weight: bold;

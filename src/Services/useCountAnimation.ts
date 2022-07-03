@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react'
 function easeOutExpo(t: number): number {
   return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
 }
-function useCountAnimaition(end: number, start = 0, duration = 2000) {
+function CountAnimaition(end: number, start: number, duration: number) {
   const [count, setCount] = useState(start)
   const frameRate = 1000 / 60
+
   const totalFrame = Math.round(duration / frameRate)
 
   useEffect(() => {
@@ -21,4 +22,4 @@ function useCountAnimaition(end: number, start = 0, duration = 2000) {
 
   return count
 }
-export default useCountAnimaition
+export default CountAnimaition
