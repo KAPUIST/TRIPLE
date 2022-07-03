@@ -1,4 +1,4 @@
-import TripleBanner from './Banner/TripleBanner'
+import TripleBanner from './Section/TripleBanner'
 
 function App() {
   return (
