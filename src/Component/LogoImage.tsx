@@ -11,7 +11,7 @@ position:absolute;
 top:150px;
 animation-duration:700ms;
 animation-name:${fadeIn};
-animation-timing-function :ease-in-out;
+
 .contents-logo{
 background-image:url("./triple2x.png");
 width:400px;

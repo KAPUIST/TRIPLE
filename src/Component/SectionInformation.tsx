@@ -13,7 +13,7 @@ animation-duration:700ms;
 animation-name:${fadeIn};
     margin-left: 623px;
     padding-top: 150px;
-    animation-timing-function :ease-in-out;
+
     .information {
     text-align: start;
     color: rgb(58, 58, 58);
